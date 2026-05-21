@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace pryRomeroERP
 {
-    public partial class frmInicioSesión : Form
+    public partial class frmPersonal : Form
     {
-        public frmInicioSesión()
+        public frmPersonal()
         {
             InitializeComponent();
         }
 
-        private void frmInicioSesión_Load(object sender, EventArgs e)
+        private void frmPersonal_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
