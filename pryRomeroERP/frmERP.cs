@@ -24,7 +24,7 @@ namespace pryRomeroERP
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            clsConexiónBD objetConeccion
+            clsConexiónBD objetConeccion = new clsConexiónBD();
         }
     }
 }
