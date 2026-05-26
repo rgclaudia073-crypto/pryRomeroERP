@@ -33,6 +33,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblPerfil = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -75,19 +76,29 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(90, 158);
+            this.button1.Location = new System.Drawing.Point(95, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 33);
             this.button1.TabIndex = 4;
             this.button1.Text = "Entrar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // lblPerfil
+            // 
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.Location = new System.Drawing.Point(37, 156);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(41, 18);
+            this.lblPerfil.TabIndex = 5;
+            this.lblPerfil.Text = "Perfil";
+            // 
             // frmInicioSesión
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(322, 220);
+            this.ClientSize = new System.Drawing.Size(337, 256);
+            this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
@@ -110,5 +121,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblPerfil;
     }
 }
