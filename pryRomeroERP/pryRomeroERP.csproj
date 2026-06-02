@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexiónBD.cs" />
+    <Compile Include="clsConexiónBDBase.cs" />
     <Compile Include="frmERP.cs">
       <SubType>Form</SubType>
     </Compile>

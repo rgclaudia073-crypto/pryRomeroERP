@@ -67,7 +67,7 @@ namespace pryRomeroERP
 
                 //Paso 1: Validar usuario y contraseña
                 string sql1 = "SELECT IdUsuario, Nombre,Apellido FROM Usuario" + "WHERE Nombre = ? AND Contrasenia = ?";
-                CommandoBaseDatos = new OleDbCommand(sql1.ConectorBaseDatos);
+                CommandoBaseDatos = new OleDbCommand(sql1, ConectorBaseDatos);
                 CommandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = nombre;
                 CommandoBaseDatos.Parameters.Add("p2", OleDbType.VarWChar).Value = contraseña;
 
@@ -81,10 +81,26 @@ namespace pryRomeroERP
 
                 string idUsuario = lector["IdUsuario"].ToString();
                 string nombreCompleto = lector["Nombre"].ToString() + " " + lector["Apellido"].ToString();
+                lector.Close();
+
+                //Paso 2: buscar el IDPerfil que corresponde al nombre de perfil
+                string sql2 = "SELECT Id FROM [Relacion/P-U] WHERE IdUsuario = ? AND IDPerfil =?";
+                CommandoBaseDatos = new OleDbCommand(sql2, ConectorBaseDatos);
+                CommandoBaseDatos.Parameters.Add("p1", OleDbType.VarChar).Value = nombre;
+
+                lector = CommandoBaseDatos.ExecuteReader();
+                if (lector.Read())
+                {
+                    lector.Close();
+                    ConectorBaseDatos.Close();
+                    return null; // perfil no existe
+                }
+
+             
 
 
 
-            }
+
             catch
             {
 
