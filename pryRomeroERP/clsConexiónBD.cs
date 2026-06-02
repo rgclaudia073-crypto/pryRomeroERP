@@ -96,7 +96,15 @@ namespace pryRomeroERP
                     return null; // perfil no existe
                 }
 
-             
+                string idPerfil = lector["IdPerfil"].ToString();
+                lector.Close();
+                {
+
+                }
+
+
+
+
 
 
 
