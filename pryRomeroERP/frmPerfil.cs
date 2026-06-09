@@ -16,5 +16,10 @@ namespace pryRomeroERP
         {
             InitializeComponent();
         }
+
+        private void frmPerfil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

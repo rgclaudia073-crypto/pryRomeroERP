@@ -58,7 +58,7 @@ namespace pryRomeroERP
                 return false;
             }
         }
-        public void ValidarUsuario(string nombre, string contraseña, string perfil)
+        public UsuarioInfo ValidarUsuario(string nombre, string contraseña, string perfil)
         {
             try
             {
@@ -122,10 +122,20 @@ namespace pryRomeroERP
                 }
             }
 
-            catch
+            catch (Exception error) 
+            
             {
-
+                MessageBox.Show("Error al validar usuario; " + error.Message);
+                return null;
             }
+            
+        }
+        public class UsuarioInfo
+        {
+            public string NombreCompleto { get; set; }
+            public string Perfil { get; set; }
+            public DateTime? FechaIngreso { get; set; }
+            public int IdSesion {  get; set; }
         }
             
     }

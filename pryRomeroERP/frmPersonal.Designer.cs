@@ -33,7 +33,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grpUsuario = new System.Windows.Forms.GroupBox();
             this.tbcPersonal = new System.Windows.Forms.TabControl();
             this.tbpDomicilio = new System.Windows.Forms.TabPage();
@@ -60,6 +59,13 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblURL = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblModulo = new System.Windows.Forms.Label();
+            this.lblAccion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpUsuario.SuspendLayout();
@@ -67,6 +73,7 @@
             this.tbpDomicilio.SuspendLayout();
             this.tbpContacto.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnContinuar
@@ -103,10 +110,10 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(2, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(626, 320);
+            this.tabControl1.Size = new System.Drawing.Size(647, 320);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -115,20 +122,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(618, 294);
+            this.tabPage1.Size = new System.Drawing.Size(639, 294);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuario";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(618, 294);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Auditoria";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // grpUsuario
             // 
@@ -140,9 +137,9 @@
             this.grpUsuario.Controls.Add(this.lblNombre);
             this.grpUsuario.Controls.Add(this.lblApellido);
             this.grpUsuario.Controls.Add(this.lblDNI);
-            this.grpUsuario.Location = new System.Drawing.Point(0, 3);
+            this.grpUsuario.Location = new System.Drawing.Point(6, 3);
             this.grpUsuario.Name = "grpUsuario";
-            this.grpUsuario.Size = new System.Drawing.Size(612, 285);
+            this.grpUsuario.Size = new System.Drawing.Size(617, 285);
             this.grpUsuario.TabIndex = 11;
             this.grpUsuario.TabStop = false;
             // 
@@ -153,7 +150,7 @@
             this.tbcPersonal.Location = new System.Drawing.Point(6, 121);
             this.tbcPersonal.Name = "tbcPersonal";
             this.tbcPersonal.SelectedIndex = 0;
-            this.tbcPersonal.Size = new System.Drawing.Size(615, 193);
+            this.tbcPersonal.Size = new System.Drawing.Size(615, 167);
             this.tbcPersonal.TabIndex = 12;
             // 
             // tbpDomicilio
@@ -170,7 +167,7 @@
             this.tbpDomicilio.Location = new System.Drawing.Point(4, 22);
             this.tbpDomicilio.Name = "tbpDomicilio";
             this.tbpDomicilio.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDomicilio.Size = new System.Drawing.Size(607, 167);
+            this.tbpDomicilio.Size = new System.Drawing.Size(607, 141);
             this.tbpDomicilio.TabIndex = 0;
             this.tbpDomicilio.Text = "Domicilio";
             this.tbpDomicilio.UseVisualStyleBackColor = true;
@@ -178,7 +175,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(413, 12);
+            this.comboBox3.Location = new System.Drawing.Point(413, 7);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 24);
             this.comboBox3.TabIndex = 7;
@@ -202,7 +199,7 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(122, 3);
+            this.textBox3.Location = new System.Drawing.Point(122, 9);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 22);
             this.textBox3.TabIndex = 4;
@@ -210,7 +207,7 @@
             // lblLocalidad
             // 
             this.lblLocalidad.AutoSize = true;
-            this.lblLocalidad.Location = new System.Drawing.Point(299, 20);
+            this.lblLocalidad.Location = new System.Drawing.Point(299, 15);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(70, 16);
             this.lblLocalidad.TabIndex = 3;
@@ -237,7 +234,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Location = new System.Drawing.Point(10, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 0;
@@ -245,6 +242,8 @@
             // 
             // tbpContacto
             // 
+            this.tbpContacto.Controls.Add(this.textBox5);
+            this.tbpContacto.Controls.Add(this.lblURL);
             this.tbpContacto.Controls.Add(this.groupBox1);
             this.tbpContacto.Controls.Add(this.chbActivo);
             this.tbpContacto.Controls.Add(this.comboBox1);
@@ -252,7 +251,7 @@
             this.tbpContacto.Location = new System.Drawing.Point(4, 22);
             this.tbpContacto.Name = "tbpContacto";
             this.tbpContacto.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpContacto.Size = new System.Drawing.Size(607, 167);
+            this.tbpContacto.Size = new System.Drawing.Size(607, 141);
             this.tbpContacto.TabIndex = 1;
             this.tbpContacto.Text = "Contacto";
             this.tbpContacto.UseVisualStyleBackColor = true;
@@ -390,6 +389,74 @@
             this.lblDNI.TabIndex = 6;
             this.lblDNI.Text = "DNI:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.lblAccion);
+            this.tabPage2.Controls.Add(this.lblModulo);
+            this.tabPage2.Controls.Add(this.lblUsuario);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(639, 294);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Auditoria";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblURL
+            // 
+            this.lblURL.AutoSize = true;
+            this.lblURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblURL.Location = new System.Drawing.Point(351, 50);
+            this.lblURL.Name = "lblURL";
+            this.lblURL.Size = new System.Drawing.Size(37, 16);
+            this.lblURL.TabIndex = 8;
+            this.lblURL.Text = "URL:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(480, 56);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 22);
+            this.textBox5.TabIndex = 9;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(15, 23);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.Text = "Usuario:";
+            // 
+            // lblModulo
+            // 
+            this.lblModulo.AutoSize = true;
+            this.lblModulo.Location = new System.Drawing.Point(126, 23);
+            this.lblModulo.Name = "lblModulo";
+            this.lblModulo.Size = new System.Drawing.Size(45, 13);
+            this.lblModulo.TabIndex = 1;
+            this.lblModulo.Text = "Módulo:";
+            // 
+            // lblAccion
+            // 
+            this.lblAccion.AutoSize = true;
+            this.lblAccion.Location = new System.Drawing.Point(246, 23);
+            this.lblAccion.Name = "lblAccion";
+            this.lblAccion.Size = new System.Drawing.Size(43, 13);
+            this.lblAccion.TabIndex = 2;
+            this.lblAccion.Text = "Acción:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(383, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "label5";
+            // 
             // frmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +482,8 @@
             this.tbpContacto.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +521,11 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label lblURL;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblAccion;
+        private System.Windows.Forms.Label lblModulo;
     }
 }

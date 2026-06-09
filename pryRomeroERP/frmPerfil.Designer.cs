@@ -84,6 +84,7 @@
             this.Controls.Add(this.lblCargo);
             this.Name = "frmPerfil";
             this.Text = "frmPerfil";
+            this.Load += new System.EventHandler(this.frmPerfil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

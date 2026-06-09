@@ -28,17 +28,9 @@ namespace pryRomeroERP
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //  ── 1. Mostrar bienvenida con datos reales de la BD ───────────────
-            if (_usuario != null)
-            {
-                lblBienvenida.Text =
-                    $"Bienvenido: {_usuario.Nombre}   |   " +
-                    $"Perfil: {_usuario.Perfil}   |   " +
-                    $"Ingreso: {_usuario.FechaIngreso:dd/MM/yyyy HH:mm:ss}";
-            }
 
-            // ── 2. Probar conexión con animación de ProgressBar ───────────────
-            IniciarProgresoConexion();
         }
+
+            
     }
 }
