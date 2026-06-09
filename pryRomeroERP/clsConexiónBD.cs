@@ -11,7 +11,7 @@ namespace pryRomeroERP
     internal class clsConexiónBD
     {
         OleDbConnection ConectorBaseDatos;
-        OleDbCommand CommandoBaseDatos;
+        OleDbCommand ComandoBaseDatos;
 
         public string Estadoconexion;
 
@@ -59,19 +59,20 @@ namespace pryRomeroERP
             }
         }
         public void ValidarUsuario(string nombre, string contraseña, string perfil)
-        { 
+        {
             try
             {
                 ConectarBaseDatos();
                 ConectorBaseDatos.Open();
 
                 //Paso 1: Validar usuario y contraseña
-                string sql1 = "SELECT IdUsuario, Nombre,Apellido FROM Usuario" + "WHERE Nombre = ? AND Contrasenia = ?";
-                CommandoBaseDatos = new OleDbCommand(sql1, ConectorBaseDatos);
-                CommandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = nombre;
-                CommandoBaseDatos.Parameters.Add("p2", OleDbType.VarWChar).Value = contraseña;
+                string sql1 = "SELECT IdUsuario, Nombre,Apellido FROM Usuario" +
+                             "WHERE Nombre = ? AND Contrasenia = ?";
+                ComandoBaseDatos = new OleDbCommand(sql1, ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = nombre;
+                ComandoBaseDatos.Parameters.Add("p2", OleDbType.VarWChar).Value = contraseña;
 
-                OleDbDataReader lector = CommandoBaseDatos.ExecuteReader();
+                OleDbDataReader lector = ComandoBaseDatos.ExecuteReader();
                 if (!lector.Read())
                 {
                     lector.Close();
@@ -85,10 +86,10 @@ namespace pryRomeroERP
 
                 //Paso 2: buscar el IDPerfil que corresponde al nombre de perfil
                 string sql2 = "SELECT Id FROM [Relacion/P-U] WHERE IdUsuario = ? AND IDPerfil =?";
-                CommandoBaseDatos = new OleDbCommand(sql2, ConectorBaseDatos);
-                CommandoBaseDatos.Parameters.Add("p1", OleDbType.VarChar).Value = nombre;
+                ComandoBaseDatos = new OleDbCommand(sql2, ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarChar).Value = nombre;
 
-                lector = CommandoBaseDatos.ExecuteReader();
+                lector = ComandoBaseDatos.ExecuteReader();
                 if (lector.Read())
                 {
                     lector.Close();
@@ -98,16 +99,28 @@ namespace pryRomeroERP
 
                 string idPerfil = lector["IdPerfil"].ToString();
                 lector.Close();
+
+                //Paso 3: verificar que el perfil corresponde al nombre de perfil ingresado
+                string sql3 = "SELECT Nombre FROM [Relacion/P-U] WHERE IdUsuario = ? AND IDPerfil = ?";
+                ComandoBaseDatos = new OleDbCommand(sql3, ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarChar).Value = idUsuario;
+                ComandoBaseDatos.Parameters.Add("p2", OleDbType.VarChar).Value = idPerfil;
+
+                lector = ComandoBaseDatos.ExecuteReader();
+                bool tieneRelacion = lector.Read();
+                lector.Close();
+                ConectorBaseDatos.Close();
+
+                if (!tieneRelacion)
                 {
-
+                    return new UsuarioInfo
+                    {
+                        NombreCompleto = nombreCompleto,
+                        Perfil = perfil,
+                        FechaIngreso = DateTime.Now
+                    };
                 }
-
-
-
-
-
-
-
+            }
 
             catch
             {
