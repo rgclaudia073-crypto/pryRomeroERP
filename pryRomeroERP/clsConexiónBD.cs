@@ -32,6 +32,8 @@ namespace pryRomeroERP
 
                 ConectorBaseDatos.ConnectionString =
                     $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={rutaBase}";
+                ConectorBaseDatos.Open(); // ← esto falta
+                Estadoconexion = "Conectado";
 
             }
             catch (Exception error)
